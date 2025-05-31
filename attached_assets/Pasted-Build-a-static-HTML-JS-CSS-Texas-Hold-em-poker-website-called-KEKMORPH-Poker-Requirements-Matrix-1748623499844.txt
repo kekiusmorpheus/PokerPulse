@@ -1,0 +1,92 @@
+Build a static HTML/JS/CSS Texas Hold'em poker website called KEKMORPH Poker.
+
+Requirements:
+
+Matrix-Themed UI:
+
+Full-screen Matrix rain animation (black + neon green).
+
+Cyberpunk design: black background, neon green text, monospace font.
+
+Phantom Wallet Connection:
+
+Require Phantom wallet connection to play.
+
+Verify KEKMORPH token (SPL) ownership: J1GjNJohLVY1PmjvQo5WBdwU3PdBVq1FWPFJggvfSwme.
+
+Buy-In & Payout Logic:
+
+Players pay buy-in by transferring KEKMORPH tokens to the treasury wallet: DAArxLx78Xb5xJUWLe8mx87WdW9NtMqNP7tv2vDsR8G.
+
+Payouts sent back automatically (1:1, no fees/taxes).
+
+Firebase Integration:
+
+Use Firebase Realtime Database to sync game state.
+
+Store players, nicknames, avatars, cards, chips, pot info.
+
+Use window.db for Firebase access:
+
+html
+Copy
+Edit
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyBCpdBBJT2pU8K3JfwPSNTtteb0TKPqaeA",
+    authDomain: "kekmorph-poker.firebaseapp.com",
+    projectId: "kekmorph-poker",
+    storageBucket: "kekmorph-poker.appspot.com",
+    messagingSenderId: "473606511628",
+    appId: "1:473606511628:web:cecd934cd39c44127d6229",
+    measurementId: "G-HZLG2XLZWJ",
+    databaseURL: "https://kekmorph-poker-default-rtdb.firebaseio.com"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  window.db = db;
+</script>
+Texas Hold'em Game Logic:
+
+Implement 9-player tables.
+
+Include hole cards, community cards, betting rounds, chip management.
+
+Table types:
+
+Degen Arena: 1K/2K blinds, 100K buy-in.
+
+Green Pill Room: 5K/10K blinds, 500K buy-in.
+
+Morpheus Vault: 10K/20K blinds, 1M buy-in.
+
+Avatar & Nickname System:
+
+Players select nickname + Matrix-style avatar (images without text).
+
+Avatar changes limited to once per day.
+
+Animations:
+
+Smooth card dealing & chip animations.
+
+Countdown timer (20 seconds) per turn with visual ring/bar.
+
+Legal Disclaimer:
+
+English & Spanish legal disclaimer at the bottom.
+
+Responsive Design:
+
+Layout must work on desktop and mobile.
+
+Deployment:
+
+Fully static site (HTML/JS/CSS).
+
+No server-side code.
+
+Ready to deploy in Replit.
+
